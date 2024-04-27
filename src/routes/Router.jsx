@@ -9,6 +9,7 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import UserProfile from "../pages/UserProfile/UserProfile";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,7 +39,8 @@ const router = createBrowserRouter([
         path: "/userprofile",
         element: (
           <PrivateRoute>
-            <UserProfile></UserProfile>
+            <UserProfile/>
+           
           </PrivateRoute>
         ),
       },
