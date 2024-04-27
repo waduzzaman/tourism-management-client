@@ -97,7 +97,7 @@ const Header = () => {
                 )}
               </div>
             )}
-            <button onClick={handleLogOut} className="btn btn-sm">
+            <button onClick={handleLogOut} className="btn btn-sm"><PiSignInBold />
               Sign out
             </button>
           </div>
