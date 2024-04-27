@@ -24,6 +24,7 @@ const Register = () => {
     // Password verification
     const lowercaseRegex = /[a-z]/;
     const uppercaseRegex = /[A-Z]/;
+    const numberRegex = /[0-9]/;
     const lengthRequirement = password.length >= 6;
 
     if (!lowercaseRegex.test(password)) {
@@ -35,6 +36,11 @@ const Register = () => {
     if (!uppercaseRegex.test(password)) {
       setError("Password must contain at least one uppercase letter");
       toast.error("Password must contain at least one uppercase letter");
+      return;
+    }
+    if (!numberRegex.test(password)) {
+      setError("Password must contain at least one number");
+      toast.error("Password must contain at least one number");
       return;
     }
 

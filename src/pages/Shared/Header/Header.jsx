@@ -74,17 +74,18 @@ const Header = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/agentprofile">Agent Profile</NavLink>
+        <NavLink to="/all-tourists-spot">All Tourists Spot</NavLink>
       </li>
       <li>
-        <NavLink to="/neighborhoodinfo">Neighborhood</NavLink>
-      </li>
+        <NavLink to="/add-tourists-spot">Add Tourists Spot</NavLink>
+      </li>      
+      <li>
+        <NavLink to="/my-list">My List</NavLink>
+      </li>      
       <li>
         <NavLink to="/blogs">Blogs</NavLink>
       </li>
-      <li>
-        <NavLink to="/estatedetails">Details</NavLink>
-      </li>
+ 
       <li>
         <NavLink to="/userprofile">User Profile</NavLink>
       </li>
@@ -168,6 +169,11 @@ const Header = () => {
                 <button className="btn btn-sm">Login</button>
               </Link>
             </div>
+            <div>
+              <Link to="/register">
+                <button className="btn btn-sm">Register</button>
+              </Link>
+            </div>
           </div>
         )}
       </div>
@@ -176,3 +182,4 @@ const Header = () => {
 };
 
 export default Header;
+
