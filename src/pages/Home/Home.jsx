@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Carousel from "../../components/Carousel/Carousel";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Spots from "../../components/Spots/Spots";
+import Countries from "../../components/Countries/Countries";
 
 
 
@@ -41,8 +42,15 @@ const Home = () => {
       {/* Spots Section */}
        <section className="py-12 bg-gray-100">
         <div className="container mx-auto">
-          <Spots/>
-         
+          <Spots/>         
+        </div>
+      </section>
+     
+      {/* Countries Section */}
+       <section className="py-12 bg-gray-100">
+        <div className="container mx-auto">
+          <Countries/>
+               
         </div>
       </section>
 
