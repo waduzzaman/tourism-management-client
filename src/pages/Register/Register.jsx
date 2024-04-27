@@ -2,16 +2,21 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify"; // 
+import {  useLocation, useNavigate } from 'react-router-dom';
 
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
+
+import Swal from 'sweetalert2'
 
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const[showPassword, setShowPassword] =useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -54,7 +59,14 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        toast.success("Registration successful");
+        // toast.success("Registration successful");
+        Swal.fire({
+          icon: 'success',
+          title: 'Registration Successful',
+          text: 'You have successfully Register!',
+        }).then(() => {
+          navigate(location?.state ? location.state : '/');
+        });
 
         // update profile: 
         updateProfile(result.user, {
@@ -66,7 +78,12 @@ const Register = () => {
       .catch((error) => {
         console.error(error);
         setError("Registration failed");
-        toast.error("Registration failed");
+        // toast.error("Registration failed");
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Invalid email or password',
+        });
       });
   };
 

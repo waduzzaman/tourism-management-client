@@ -1,69 +1,18 @@
+
+
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { signInWithPopup, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import { FaGithub, FaGoogle } from "react-icons/fa";
-
-const GitHubSignInButton = () => {
-  const auth = useContext(AuthContext);
-  const handleGitHubSignIn = async () => {
-    try {
-      const provider = new GithubAuthProvider();
-      const result = await signInWithPopup(auth.auth, provider);
-      const user = result.user;
-
-      console.log("GitHub sign-in successful:", user);
-    } catch (error) {
-      console.error("GitHub sign-in error:", error);
-    }
-  };
-
-  return (
-    <button onClick={handleGitHubSignIn}>
-      <FaGithub />
-    </button>
-  );
-};
-
-const GoogleSignInButton = () => {
-  const auth = useContext(AuthContext);
-  const handleGoogleSignIn = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth.auth, provider);
-      const user = result.user;
-
-      console.log("Google sign-in successful:", user);
-    } catch (error) {
-      console.error("Google sign-in error:", error);
-    }
-  };
-
-  return (
-    <button onClick={handleGoogleSignIn}>
-      <FaGoogle />
-    </button>
-  );
-};
+import { PiSignInBold } from "react-icons/pi";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const [showUserName, setShowUserName] = useState(false);
-  const [googleUserPhotoURL, setGoogleUserPhotoURL] = useState(null);
-  const [userName, setUserName] = useState("");
 
   const handleLogOut = () => {
     logOut()
       .then(() => console.log("User logged out successfully"))
       .catch((error) => console.error(error));
-  };
-
-  const handleMouseEnter = () => {
-    setShowUserName(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowUserName(false);
   };
 
   const navLinks = (
@@ -130,43 +79,33 @@ const Header = () => {
       <div className="navbar-end">
         {user ? (
           <div
-            className="flex items-center"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            className="flex items-center relative"
+            onMouseEnter={() => setShowUserName(true)}
+            onMouseLeave={() => setShowUserName(false)}
           >
-            {googleUserPhotoURL && (
-              <div
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
+            {user.photoURL && (
+              <div className="relative">
                 <img
-                  src={googleUserPhotoURL}
-                  alt="Google User"
+                  src={user.photoURL}
+                  alt={user.displayName}
                   className="w-8 h-8 rounded-full mr-2"
                 />
                 {showUserName && (
-                  <span className="absolute top-10 left-4 bg-white p-1 rounded">
-                    {userName}
+                  <span className="absolute top-[25px] left-[20px] bg-white p-1 rounded">
+                    {user.displayName}
                   </span>
                 )}
               </div>
             )}
-
             <button onClick={handleLogOut} className="btn btn-sm">
               Sign out
             </button>
           </div>
         ) : (
-          <div className="flex gap-3 items-center">
-            <div className="pr-3">
-              <GoogleSignInButton />
-            </div>
-            <div>
-              <GitHubSignInButton />
-            </div>
+          <div className="flex gap-3 items-center">         
             <div>
               <Link to="/login">
-                <button className="btn btn-sm">Login</button>
+                <button className="btn btn-sm"> <PiSignInBold /> Login</button>
               </Link>
             </div>
             <div>
@@ -182,4 +121,3 @@ const Header = () => {
 };
 
 export default Header;
-
