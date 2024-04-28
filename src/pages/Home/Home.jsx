@@ -5,6 +5,8 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import Spots from "../../components/Spots/Spots";
 import Countries from "../../components/Countries/Countries";
 import LastMinuteOffer from "../../components/LastMinuteOffer/LastMinuteOffer";
+import TypewriterSection from "../../components/TypewriterSection/TypewriterSection";
+
 
 
 
@@ -20,6 +22,10 @@ const Home = () => {
         <title> Travel | Home</title>
       </Helmet>
 
+      <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-10">
+        <TypewriterSection></TypewriterSection>
+      </section>
+
      
       {/* Carousel Section */}
       <section className="pb-10 bg-gray-100">
@@ -27,6 +33,8 @@ const Home = () => {
           <Carousel />
         </div>
       </section>  
+
+
 
       <section className="bg-gradient-to-b from-blue-500 to-blue-700 text-white py-20">
         <div className="container mx-auto text-center">
@@ -38,6 +46,7 @@ const Home = () => {
           </button>
         </div>
       </section>
+
 
 
       {/* Spots Section */}

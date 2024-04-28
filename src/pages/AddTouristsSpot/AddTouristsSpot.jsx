@@ -1,120 +1,130 @@
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 const AddTouristsSpot = () => {
-    const handleAddCoffee = event => {
+    const handleAddTouristsSpot = event => {
         event.preventDefault();
-
+        
         const form = event.target;
-
         const name = form.name.value;
-        const quantity = form.quantity.value;
-        const supplier = form.supplier.value;
-        const taste = form.taste.value;
-        const category = form.category.value;
-        const details = form.details.value;
-        const photo = form.photo.value;
+        const email = form.email.value; 
+        const image = form.image.value;
+        const tourists_spot_name = form.tourists_spot_name.value;
+        const country_name = form.country_name.value;
+        const location = form.location.value;
+        const short_description = form.short_description.value;
+        const average_cost = Number(form.average_cost.value) || 0;
+        const seasonality = form.seasonality.value;
+        const travel_duration = Number(form.travel_duration.value) || 0;
+        const total_visitors_per_year = Number(form.total_visitors_per_year.value) || 0;
 
-        const newCoffee = { name, quantity, supplier, taste, category, details, photo }
+        const newTouristsSpot = { name, email, image, tourists_spot_name, country_name, location, short_description, average_cost, seasonality, travel_duration, total_visitors_per_year };
 
-        console.log(newCoffee);
+        console.log(newTouristsSpot);
 
-        // send data to the server
-        fetch('https://coffee-store-server-74xiae2di-jhankarphero.vercel.app/coffee', {
+        // Send data to the server
+        fetch('http://localhost:5000/spots', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newCoffee)
+            body: JSON.stringify(newTouristsSpot)
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if(data.insertedId){
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Coffee Added Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                      })
-                }
-            })
-    }
-
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Spot Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                });
+            }
+        });
+    };
 
     return (
         <div className="bg-[#F4F3F0] p-24">
-            <h2 className="text-3xl font-extrabold">Add a Coffee</h2>
-            <form onSubmit={handleAddCoffee}>
-                {/* form name and quantity row */}
+            <h2 className="text-4xl font-extrabold text-center text-black mb-5">Add A Tourists Spot</h2>
+            <form onSubmit={handleAddTouristsSpot}>
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Coffee Name</span>
+                            <span className="label-text text-black text-lg font-bold">User Name</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="name" placeholder="Coffee Name" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" name="name" placeholder="User Name" className="input input-bordered w-full" />
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Available Quantity</span>
+                            <span className="label-text text-black text-lg font-bold">User Email</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" name="email" placeholder="Email" className="input input-bordered w-full" />
                     </div>
                 </div>
-                {/* form supplier row */}
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Supplier Name</span>
+                            <span className="label-text text-black text-lg font-bold">Tourists Spot Name</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="supplier" placeholder="Supplier Name" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" name="tourists_spot_name" placeholder="Tourists Spot Name" className="input input-bordered w-full" />
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Taste</span>
+                            <span className="label-text text-black text-lg font-bold">Country Name</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="taste" placeholder="Taste" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" name="country_name" placeholder="Country Name" className="input input-bordered w-full" />
                     </div>
                 </div>
-                {/* form category and details row */}
                 <div className="md:flex mb-8">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Category</span>
+                            <span className="label-text text-black text-lg font-bold">Location</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" name="location" placeholder="Location" className="input input-bordered w-full" />
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
-                            <span className="label-text">Details</span>
+                            <span className="label-text text-black text-lg font-bold">Short Description</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" name="short_description" placeholder="Short Description" className="input input-bordered w-full" />
                     </div>
                 </div>
-                {/* form Photo url row */}
+                <div className="md:flex mb-8">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-black text-lg font-bold">Average Cost</span>
+                        </label>
+                        <input type="text" name="average_cost" placeholder="Average Cost" className="input input-bordered w-full" />
+                    </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text text-black text-lg font-bold">Best Season</span>
+                        </label>
+                        <input type="text" name="seasonality" placeholder="Best Season" className="input input-bordered w-full" />
+                    </div>
+                </div>
+                <div className="md:flex mb-8">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-black text-lg font-bold">Travel Duration</span>
+                        </label>
+                        <input type="text" name="travel_duration" placeholder="Travel Duration" className="input input-bordered w-full" />
+                    </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text text-black text-lg font-bold">Total Visitors Per Year</span>
+                        </label>
+                        <input type="text" name="total_visitors_per_year" placeholder="Total Visitors Per Year" className="input input-bordered w-full" />
+                    </div>
+                </div>
                 <div className="mb-8">
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Photo URL</span>
+                            <span className="label-text text-black text-lg font-bold">Image URL</span>
                         </label>
-                        <label className="input-group">
-                            <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" />
                     </div>
                 </div>
-                <input type="submit" value="Add Coffee" className="btn btn-block" />
-
+                <input type="submit" value="Add Tourists Spot" className="btn btn-block text-lg" />
             </form>
         </div>
     );
