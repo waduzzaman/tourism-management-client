@@ -11,7 +11,7 @@ import UserProfile from "../pages/UserProfile/UserProfile";
 import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
 import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
-
+import MyList from "../pages/MyList/MyList";
 
 const router = createBrowserRouter([
   {
@@ -27,25 +27,29 @@ const router = createBrowserRouter([
         path: "/all-tourists-spot",
         element: <AllTouristsSpot/>
       },
+      
       {
-        path: "/view-details",
-        element: <ViewDetails/>
+        path: "/my-list",
+        element: (
+          <PrivateRoute>
+           <MyList/>         
+          </PrivateRoute>
+        ),
       },
 
       
-
+      {
+        path: "/view-details/:id", 
+        element: <ViewDetails/>
+      },
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
       },
-
-
-      
       {
         path: "/login",
         element: <Login></Login>,
       },
-
       {
         path: "/register",
         element: <Register></Register>,
@@ -58,6 +62,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
+      {
+        path: "/view-details/:id",      
+        element: (
+          <PrivateRoute>
+           <ViewDetails/>     
+          </PrivateRoute>
+        ),
+      },
+     
+
       {
         path: "/add-tourists-spot",
         element: (

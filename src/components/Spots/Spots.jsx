@@ -11,11 +11,11 @@ const Spots = () => {
     }, []);
 
     return (
-        <div className="container mx-auto">
-            <h1 className="text-3xl font-bold mb-8">Tourist Spots</h1>
-            <div className="grid grid-cols-3 gap-8">
+        <div className="container mx-auto p-2">
+            <h1 className="text-3xl font-bold mb-8 text-center">Tourist Spots</h1>
+            <div className="grid grid-cols-3 gap-8 p-4 ">
                 {spots.map(spot => (
-                    <div key={spot._id} className="border border-gray-200 rounded-lg p-4">
+                    <div key={spot._id} className="border-2 p-5  border-slate-800 bg-slate-100 drop-shadow-2xl rounded-lg ">
                         <img src={spot.image} alt={spot.tourists_spot_name} className="w-full h-48 object-cover mb-4 rounded-lg" />
                         <h2 className="text-xl font-semibold mb-2">{spot.tourists_spot_name}</h2>
                         <p className="text-gray-600 mb-2">{spot.country_name}</p>
