@@ -4,6 +4,7 @@ import Carousel from "../../components/Carousel/Carousel";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import Spots from "../../components/Spots/Spots";
 import Countries from "../../components/Countries/Countries";
+import LastMinuteOffer from "../../components/LastMinuteOffer/LastMinuteOffer";
 
 
 
@@ -49,8 +50,13 @@ const Home = () => {
       {/* Countries Section */}
        <section className="py-12 bg-gray-100">
         <div className="container mx-auto">
-          <Countries/>
-               
+          <Countries/>               
+        </div>
+      </section>
+      {/* Last Minute Offer */}
+       <section className="py-12 bg-gray-100">
+        <div className="container mx-auto">
+          <LastMinuteOffer/>       
         </div>
       </section>
 

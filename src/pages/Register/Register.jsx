@@ -89,7 +89,7 @@ const Register = () => {
   return (
     <div className="min-h-screen flex justify-center items-center b">
       <Helmet>
-        <title>Dream Home | Registration</title>
+        <title> Travel | Registration</title>
       </Helmet>
       <div className="bg-white shadow-md rounded-md p-8 max-w-md w-full">
         <h2 className="text-center text-3xl mb-10">Please Register</h2>
