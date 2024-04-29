@@ -63,6 +63,9 @@ const AllTouristsSpot = () => {
             <p className="text-gray-600 mb-2">
               Average Cost: ${spot.average_cost}
             </p>
+            {/* <p className="text-gray-600 mb-2">
+              Average Cost: ${spot.email}
+            </p> */}
             <p className="text-gray-600">
               Total Visitors Per Year: {spot.total_visitors_per_year}
             </p>

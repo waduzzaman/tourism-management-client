@@ -6,7 +6,8 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { PiSignInBold } from "react-icons/pi";
 
 const Header = () => {
-  const { user, logOut } = useContext(AuthContext);
+  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext) ||{};
   const [showUserName, setShowUserName] = useState(false);
 
   const handleLogOut = () => {
@@ -30,6 +31,9 @@ const Header = () => {
       </li>      
       <li>
         <NavLink to="/my-list">My List</NavLink>
+      </li>      
+      <li>
+        <NavLink to="/update-tourists-spot">Update Tourist Spot</NavLink>
       </li>      
       <li>
         <NavLink to="/view-details">View Details</NavLink>

@@ -58,13 +58,11 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-
   const handleLogin = async (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get('email');
-    const password = form.get('password');
-  
+    const password = form.get('password');  
     try {
       await signIn(email, password);
       console.log('Login successful');
