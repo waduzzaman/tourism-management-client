@@ -75,10 +75,6 @@ const AllTouristsSpot = () => {
             <p className="text-gray-600 mb-2">
               Seasonality: {spot.seasonality}
             </p>
-
-            
-
-            {/* <Link to={`/view-details/${spot._id}`} className="btn btn-primary p-2">View Details</Link>                       */}
             <Link
               to={`/view-details/${spot._id}`}
               className="btn btn-primary p-2"

@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PrivateRoute from "../../routes/PrivateRoute";
@@ -7,30 +5,40 @@ import { FiEdit } from "react-icons/fi";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const MyList = () => {
-
-    const {user} = useContext(AuthContext) ||{};
+  const { user } = useContext(AuthContext) || {};
   const [spots, setSpots] = useState([]);
-
+  console.log(user);
 
   useEffect(() => {
-    const fetchSpots = async () => {
-      try {
-        const response = await fetch(`http://localhost:5000/spots/${user?.email}`);
-        if (response.ok) {
-          const data = await response.json();
-          setSpots(Array.isArray(data) ? data : [data]); // Ensure data is always an array
-        } else {
-          console.error("Failed to fetch spots:", response.statusText);
-        }
-      } catch (error) {
-        console.error("Error fetching spots:", error);
-      }
-    };
+    if (!user?.email) return; // Skip fetch if email is not available
 
-    if (user) {
-      fetchSpots();
-    }
+    fetch(`http://localhost:5000/spots/email/${user.email}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setSpots(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching spots:", error);
+        // Handle the error, e.g., display an error message to the user
+      });
   }, [user]);
+
+  const handleDelete=(id)=> {
+    fetch(`http://localhost:5000/delete/${id}`, { 
+      method: "DELETE"
+     })
+     .then((res)=>res.json())
+     .then((data)=>{
+      console.log('Deleted spot', data);
+     })
+
+     
+  }
 
   return (
     <div className="container mx-auto p-3">
@@ -42,7 +50,9 @@ const MyList = () => {
         <thead>
           <tr className="bg-gray-200 text-black">
             <th className="p-4 text-center border border-gray-800">Image</th>
-            <th className="p-4 text-center border border-gray-800">Spot Name</th>
+            <th className="p-4 text-center border border-gray-800">
+              Spot Name
+            </th>
             <th className="p-4 text-center border border-gray-800">Cost</th>
             <th className="p-4 text-center border border-gray-800">Duration</th>
             <th className="p-4 text-center border border-gray-800">Update</th>
@@ -59,11 +69,15 @@ const MyList = () => {
                   className="w-16 h-16 object-cover rounded-lg"
                 />
               </td>
-              <td className="p-4 text-center border">{spot.tourists_spot_name}</td>
-              <td className="p-4 text-center border">${spot.average_cost}</td>
-              <td className="p-4 text-center border">{spot.travel_duration} days</td>
               <td className="p-4 text-center border">
-                <Link to={`/view-details/${spot._id}`}>
+                {spot.tourists_spot_name}
+              </td>
+              <td className="p-4 text-center border">${spot.average_cost}</td>
+              <td className="p-4 text-center border">
+                {spot.travel_duration} days
+              </td>
+              <td className="p-4 text-center border">
+                <Link to={`/update-tourists-spot/${spot._id}`}>
                   <PrivateRoute>
                     <FiEdit className="w-8 h-8" />
                   </PrivateRoute>
@@ -74,7 +88,7 @@ const MyList = () => {
                   to={`/view-details/${spot._id}`}
                   className="text-white bg-red-500 px-4 py-2 rounded-md transition duration-300 hover:bg-blue-600"
                 >
-                  <PrivateRoute>X</PrivateRoute>
+                  <PrivateRoute> <button onClick={()=>handleDelete(spot._id)}>X</button></PrivateRoute>
                 </Link>
               </td>
             </tr>
@@ -86,4 +100,3 @@ const MyList = () => {
 };
 
 export default MyList;
-

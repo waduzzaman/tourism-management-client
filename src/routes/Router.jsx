@@ -81,7 +81,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/update-tourists-spot",
+        path: "/update-tourists-spot/:id",
         element: (
           <PrivateRoute>
             <UpdateTouristsSpot />
