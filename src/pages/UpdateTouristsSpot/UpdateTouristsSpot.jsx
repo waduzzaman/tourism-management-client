@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
+
+
+
 const UpdateTouristsSpot = () => {
   const { id } = useParams();
 
@@ -63,6 +66,7 @@ const UpdateTouristsSpot = () => {
           });
         }
       });
+      
   };
 
   return (

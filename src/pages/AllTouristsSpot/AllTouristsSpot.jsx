@@ -26,7 +26,7 @@ const AllTouristsSpot = () => {
   };
 
   return (
-    <div className="container mx-auto p-3">
+    <div className="container mx-auto bg-gray-50 p-3">
       <div className="bg-blue-500 text-white text-center py-4">
         <h1 className="text-3xl font-bold mb-8">Tourist Spots</h1>
 
@@ -49,9 +49,9 @@ const AllTouristsSpot = () => {
       </div>
 
       {/* Grid of spots */}
-      <div className="grid grid-cols-3 gap-8 shadow-lg">
+      <div className="grid grid-cols-3 gap-2 shadow-lg">
         {spots.map((spot) => (
-          <div key={spot._id} className="border border-gray-200 rounded-lg p-4">
+          <div key={spot._id} className="border border-gray-600 m-4 rounded-lg bg-gray-200 p-4">
             <img
               src={spot.image}
               alt={spot.tourists_spot_name}

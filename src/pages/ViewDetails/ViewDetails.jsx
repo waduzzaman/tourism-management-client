@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
 const ViewDetails = () => {
   const [spot, setSpot] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams(); // Corrected parameter name to id
+  const { id } = useParams(); 
 
   useEffect(() => {
     const fetchSpot = async () => {
