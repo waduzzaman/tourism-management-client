@@ -1,51 +1,36 @@
-Vite
-React
-sweet alert
-React icons
+# Tourism Management Website
 
-    {
-  "name": "tourism-management-client",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "firebase": "^10.11.1",
-    "font-awesome": "^4.7.0",
-    "localforage": "^1.10.0",
-    "match-sorter": "^6.3.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-helmet-async": "^2.0.4",
-    "react-icons": "^5.1.0",
-    "react-router-dom": "^6.23.0",
-    "react-toastify": "^10.0.5",
-    "sort-by": "^1.2.0",
-    "sweetalert2": "^11.10.8",
-    "sweetalert2-react-content": "^5.0.7",
-    "swiper": "^11.1.1"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.19",
-    "daisyui": "^4.10.2",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0"
-  }
-}
+[Live Site](https://top-tourism-management.netlify.app/)
+
+## Overview
+Welcome to Tourism Management, your ultimate destination for managing all your tourism-related activities. Whether you're planning a trip, exploring new destinations, or sharing your travel experiences, our platform has you covered.
+
+## Key Features
+- **Explore Tourist Spots**: Discover a wide range of tourist spots worldwide, from iconic landmarks to hidden gems.
+- **Plan Your Trip**: Use our interactive tools to plan your itinerary, book accommodations, and find local attractions.
+- **Personalized Recommendations**: Receive tailored recommendations based on your preferences, interests, and past travel history.
+- **Community Engagement**: Connect with fellow travelers, share tips and recommendations, and join discussions on the latest travel trends.
+- **Stay Informed**: Access up-to-date information on travel advisories, safety guidelines, and cultural insights for various destinations.
+
+## Technologies Used
+- React: A powerful JavaScript library for building user interfaces.
+- Firebase: A comprehensive platform for building web and mobile applications.
+- Tailwind CSS: A utility-first CSS framework for creating custom designs with ease.
+- Vite: A modern build tool that provides fast and efficient development and production workflows.
+- SweetAlert2: A customizable and responsive popup library for displaying alerts and notifications.
+
+## Get Started
+To run the project locally:
+1. Clone this repository.
+2. Install dependencies using `npm install`.
+3. Start the development server with `npm run dev`.
+4. Open `http://localhost:3000` in your browser to view the website.
+
+## Contributors
+- Md Mahbub E waduzzaman -- Full Stack Developer
+
+
+## Feedback and Support
+We welcome your feedback and suggestions to improve our platform. If you encounter any issues or need assistance, please reach out to our support team at mwaduzzaman@gmail.com.
+
+Thank you for choosing Tourism Management for all your travel needs! Happy exploring!

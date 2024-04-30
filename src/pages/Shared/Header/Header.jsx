@@ -1,14 +1,36 @@
 
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState, } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { PiSignInBold } from "react-icons/pi";
 
 const Header = () => {
-  // const { user, logOut } = useContext(AuthContext);
+
   const { user, logOut } = useContext(AuthContext) ||{};
   const [showUserName, setShowUserName] = useState(false);
+
+  // Dark mode
+
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const isDarkModeEnabled = JSON.parse(localStorage.getItem("darkMode"));
+    setDarkMode(isDarkModeEnabled);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
+
 
   const handleLogOut = () => {
     logOut()
@@ -84,6 +106,18 @@ const Header = () => {
       </div>
 
       <div className="navbar-end">
+
+      <button
+            onClick={toggleDarkMode}
+            className="btn btn-sm"
+            title={darkMode ? "Light Mode" : "Dark Mode"}
+          >
+            {darkMode ? "🌞" : "🌙"}
+          </button>
+
+    
+
+        
         {user ? (
           <div
             className="flex items-center relative"
@@ -128,3 +162,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
