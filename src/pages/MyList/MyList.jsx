@@ -7,7 +7,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 const MyList = () => {
   const { user } = useContext(AuthContext) || {};
   const [spots, setSpots] = useState([]);
-  console.log(user);
+  const [control, setControl] = useState(false);
+  // console.log(user);
 
   useEffect(() => {
     if (!user?.email) return; // Skip fetch if email is not available
@@ -26,19 +27,19 @@ const MyList = () => {
         console.error("Error fetching spots:", error);
         // Handle the error, e.g., display an error message to the user
       });
-  }, [user]);
+  }, [user, control]);
 
-  const handleDelete=(id)=> {
-    fetch(`http://localhost:5000/delete/${id}`, { 
-      method: "DELETE"
-     })
-     .then((res)=>res.json())
-     .then((data)=>{
-      console.log('Deleted spot', data);
-     })
-
-     
-  }
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/delete/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          setControl(!control);
+        }
+      });
+  };
 
   return (
     <div className="container mx-auto p-3">
@@ -83,13 +84,9 @@ const MyList = () => {
                   </PrivateRoute>
                 </Link>
               </td>
-              <td className="p-4 text-center border">
-                <Link
-                  to={`/view-details/${spot._id}`}
-                  className="text-white bg-red-500 px-4 py-2 rounded-md transition duration-300 hover:bg-blue-600"
-                >
-                  <PrivateRoute> <button onClick={()=>handleDelete(spot._id)}>X</button></PrivateRoute>
-                </Link>
+              <td className="p-4 text-center border">              
+
+                <button className="text-white bg-red-600 px-4 py-2 rounded-md transition duration-300 hover:bg-orange-600" onClick={() => handleDelete(spot._id)}>X</button>
               </td>
             </tr>
           ))}
