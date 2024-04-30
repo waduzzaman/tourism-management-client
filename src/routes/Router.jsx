@@ -87,7 +87,7 @@ const router = createBrowserRouter([
             <UpdateTouristsSpot />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>fetch(`http://localhost:5000/spots${params.id}`),
+        loader: ({ params }) =>fetch(`https://tourism-management-server-sable.vercel.app/spots${params.id}`),
       },
     ],
   },

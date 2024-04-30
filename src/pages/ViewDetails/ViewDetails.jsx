@@ -19,7 +19,7 @@ const ViewDetails = () => {
   useEffect(() => {
     const fetchSpot = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/spots/${id}`);
+        const response = await fetch(`https://tourism-management-server-sable.vercel.app/spots/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch spot details");
         }

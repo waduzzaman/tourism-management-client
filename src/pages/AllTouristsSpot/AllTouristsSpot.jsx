@@ -7,7 +7,7 @@ const AllTouristsSpot = () => {
   const [sortBy, setSortBy] = useState("ascending"); // Default sorting order
 
   useEffect(() => {
-    fetch("http://localhost:5000/spots")
+    fetch("https://tourism-management-server-sable.vercel.app/spots")
       .then((response) => response.json())
       .then((data) => setSpots(data))
       .catch((error) => console.error("Error fetching spots:", error));

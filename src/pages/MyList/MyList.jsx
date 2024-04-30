@@ -13,7 +13,7 @@ const MyList = () => {
   useEffect(() => {
     if (!user?.email) return; // Skip fetch if email is not available
 
-    fetch(`http://localhost:5000/spots/email/${user.email}`)
+    fetch(`https://tourism-management-server-sable.vercel.app/spots/email/${user.email}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch");
@@ -39,7 +39,7 @@ const MyList = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://tourism-management-server-sable.vercel.app/delete/${id}`, {
           method: "DELETE",
         })
         .then((res) => res.json())
