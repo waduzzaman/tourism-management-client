@@ -45,8 +45,8 @@ export default function Carousel() {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-3xl text-white font-bold">Slide 1</p>
-              <p className="text-lg text-white">Description 1</p>
+              <p className="text-3xl text-white font-bold">Golden Grand Canyon</p>
+              <p className="text-lg text-white">Majestic Hues: Hourshoeben Golden Grand Canyon Captured in Time.</p>
             </div>
           </div>
         </SwiperSlide>
@@ -58,8 +58,8 @@ export default function Carousel() {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-3xl text-white font-bold">Slide 2</p>
-              <p className="text-lg text-white">Description 2</p>
+              <p className="text-3xl text-white font-bold">Tranquil Serenity</p>
+              <p className="text-lg text-white">Natures Symphony: Majestic mountains mirrored in the serene embrace of a tranquil lake</p>
             </div>
           </div>
         </SwiperSlide>
@@ -72,8 +72,8 @@ export default function Carousel() {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-3xl text-white font-bold">Slide 3</p>
-              <p className="text-lg text-white">Description 3</p>
+              <p className="text-3xl text-white font-bold"> Jungle Symphony</p>
+              <p className="text-lg text-white">Exploring the vibrant tapestry of life in the Amazon rainforest.</p>
             </div>
           </div>
         </SwiperSlide>
@@ -85,8 +85,8 @@ export default function Carousel() {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-3xl text-white font-bold">Slide 4</p>
-              <p className="text-lg text-white">Description 4</p>
+              <p className="text-3xl text-gray-600 font-bold ">Frozen Majesty</p>
+              <p className="text-lg text-gray-600">Perito Moreno Glacier: Santa Cruz breathtaking icy spectacle enchants all</p>
             </div>
           </div>
         </SwiperSlide>
@@ -98,8 +98,8 @@ export default function Carousel() {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-3xl text-white font-bold">Slide 5</p>
-              <p className="text-lg text-white">Description 5</p>
+              <p className="text-3xl text-white font-bold">Ancient Splendor</p>
+              <p className="text-lg text-white">Chichén Itzá: Echoes of Mayan civilization in Mexico heart.</p>
             </div>
           </div>
         </SwiperSlide>
@@ -113,8 +113,8 @@ export default function Carousel() {
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-3xl text-white font-bold">Slide 6 </p>
-              <p className="text-lg text-white">Description 6</p>
+              <p className="text-3xl text-white font-bold">Machu Picchu </p>
+              <p className="text-lg text-white">Lost City Revealed: Machu Picchu, a testament to ancient Incan ingenuity</p>
             </div>
           </div>
         </SwiperSlide>

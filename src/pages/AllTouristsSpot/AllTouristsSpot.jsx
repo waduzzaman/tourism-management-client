@@ -35,7 +35,7 @@ const AllTouristsSpot = () => {
             Sort by Average Cost:{" "}
           </label>
           <select
-            className="text-lg"
+            className="text-lg bg-gray-800 p-1"
             id="sort"
             value={sortBy}
             onChange={handleSortChange}
@@ -57,27 +57,27 @@ const AllTouristsSpot = () => {
               alt={spot.tourists_spot_name}
               className="w-full h-48 object-cover mb-4 rounded-lg"
             />
-            <h2 className="text-xl font-semibold mb-2">
-              Tourists Spot Name: {spot.tourists_spot_name}
+            <h2 className="text-xl font-semibold text-gray-800 text-center  mb-4">
+             {spot.tourists_spot_name}
             </h2>
-            <p className="text-gray-600 mb-2">
-              Average Cost: ${spot.average_cost}
+            <p className="text-gray-600 mb-1">
+              <span className="font-semibold">Average Cost:</span> ${spot.average_cost}
             </p>
             {/* <p className="text-gray-600 mb-2">
               Average Cost: ${spot.email}
             </p> */}
-            <p className="text-gray-600">
-              Total Visitors Per Year: {spot.total_visitors_per_year}
+            <p className="text-gray-600 pb-1">
+              <span className="font-semibold">Visitors Per Year:</span> {spot.total_visitors_per_year}
             </p>
-            <p className="text-gray-600 mb-2">
-              Travel Duration: {spot.travel_duration} days
+            <p className="text-gray-600 mb-1">
+             <span className="font-semibold"> Travel Duration:</span> {spot.travel_duration} days
             </p>
-            <p className="text-gray-600 mb-2">
-              Seasonality: {spot.seasonality}
+            <p className="text-gray-600 mb-1">
+              <span className="font-semibold">Best Season:</span> {spot.seasonality}
             </p>
             <Link
               to={`/view-details/${spot._id}`}
-              className="btn btn-primary p-2"
+              className="btn btn-info p-2 my-3"
             >
               <PrivateRoute>View Details</PrivateRoute>
             </Link>
