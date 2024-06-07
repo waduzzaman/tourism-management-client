@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const UpdateTouristsSpot = () => {
   const { id } = useParams();
 
-  // console.log("this is id",id);
+
   const [spot, setSpot] = useState({});
 
   useEffect(() => {

@@ -46,10 +46,7 @@ const router = createBrowserRouter([
         path: "/blogs",
         element: <Blogs></Blogs>,
       },
-      {
-        path: "/login",
-        element: <Login></Login>,
-      },
+   
       {
         path: "/register",
         element: <Register></Register>,
@@ -80,6 +77,8 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
+      // private route
       {
         path: "/update-tourists-spot/:id",
         element: (

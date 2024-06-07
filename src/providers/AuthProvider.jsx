@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      // If the user is logged in, you can access their photo URL here
+      // If the user is logged in show photo
       const photoUrl = user.photoURL;
       console.log("User photo URL:", photoUrl);
     }
