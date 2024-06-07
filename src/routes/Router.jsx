@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         ),
       },
 
-      // private route
+      // private route for new repo
       {
         path: "/update-tourists-spot/:id",
         element: (
