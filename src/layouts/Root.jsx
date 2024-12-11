@@ -9,8 +9,7 @@ const Root = () => {
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer> 
-            <ScrollToTopButton/>
-            
+            <ScrollToTopButton/>            
             
         </div>
     );

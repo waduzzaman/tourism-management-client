@@ -6,10 +6,6 @@ import Spots from "../../components/Spots/Spots";
 import Countries from "../../components/Countries/Countries";
 import LastMinuteOffer from "../../components/LastMinuteOffer/LastMinuteOffer";
 import TypewriterSection from "../../components/TypewriterSection/TypewriterSection";
-
-
-
-
 const Home = () => {
   const propertiesRef = useRef(null);  
   const scrollToProperties = () => {
@@ -26,8 +22,7 @@ const Home = () => {
         <TypewriterSection></TypewriterSection>
       </section>
 
-     
-      {/* Carousel Section */}
+           {/* Carousel Section */}
       <section className="pb-10 bg-gray-100">
         <div className="container mx-auto w-full h-1/2">
           <Carousel />

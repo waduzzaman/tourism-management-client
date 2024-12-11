@@ -17,12 +17,20 @@ import UpdateTouristsSpot from "../pages/UpdateTouristsSpot/UpdateTouristsSpot";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
+    element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,  // Home should be publicly accessible
+      },
+      {
+        path: "/login",
+        element: <Login />, // Login route is still public
+      },
+      {
+        path: "/register",
+        element: <Register />,  // Register route is public
       },
       {
         path: "/all-tourists-spot",
@@ -35,21 +43,18 @@ const router = createBrowserRouter([
             <MyList />
           </PrivateRoute>
         ),
- 
       },
-
       {
         path: "/view-details/:id",
-        element: <ViewDetails />,
+        element: (
+          <PrivateRoute>
+            <ViewDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blogs",
-        element: <Blogs></Blogs>,
-      },
-   
-      {
-        path: "/register",
-        element: <Register></Register>,
+        element: <Blogs />,
       },
       {
         path: "/userprofile",
@@ -59,16 +64,6 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
-      {
-        path: "/view-details/:id",
-        element: (
-          <PrivateRoute>
-            <ViewDetails />
-          </PrivateRoute>
-        ),
-      },
-
       {
         path: "/add-tourists-spot",
         element: (
@@ -77,8 +72,6 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
-      // private route for new repo
       {
         path: "/update-tourists-spot/:id",
         element: (
@@ -86,7 +79,8 @@ const router = createBrowserRouter([
             <UpdateTouristsSpot />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>fetch(`https://tourism-management-server-sable.vercel.app/spots${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://tourism-management-server-sable.vercel.app/spots/${params.id}`),
       },
     ],
   },
